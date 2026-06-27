@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events Learning</title>
+</head>
+<body style="background-color: black; color: aliceblue;">
+
+    <h1>Events Learning In JavaScript</h1>
+    <button id="start">START</button>
+    <button id="stop">STOP</button>
+    
+</body>
+    <script>
+
+        let intervalId = null;
+
+        const sayDate = function(){
+            console.log("Taimur", Date.now());
+        }
+
+        function startInterval(){
+            if (intervalId !== null) {
+                console.log("already running");
+                return;
+            }
+
+            intervalId = setInterval(sayDate, 1000);
+            console.log("started");
+        }
+
+        function stopInterval(){
+            if (intervalId !== null) {
+                clearInterval(intervalId);
+                intervalId = null;
+                console.log("stopped");
+            }
+        }
+
+        document.querySelector('#stop').addEventListener("click", stopInterval);
+
+        document.querySelector('#start').addEventListener("click", startInterval);
+           
+    </script>
+
+</html>
